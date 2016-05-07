@@ -1,0 +1,128 @@
+/* Reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, 
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, 
+big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, 
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, table, caption, tbody, tfoot, 
+thead, tr, th, td { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    outline: 0; 
+    font-weight: inherit; 
+    font-style: inherit; 
+    font-size: 100%; 
+    font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif; 
+    vertical-align: baseline; 
+} 
+:focus { 
+    outline: 0; 
+} 
+table { 
+    border-collapse: separate; 
+    border-spacing: 0; 
+} 
+caption, th, td { 
+    text-align: left; 
+    font-weight: normal; 
+} 
+a img, iframe { 
+    border: none; 
+} 
+ol, ul { 
+    list-style: none; 
+} 
+input, textarea, select, button { 
+    font-size: 100%; 
+    font-family: inherit; 
+} 
+select { 
+    margin: inherit; 
+} 
+/* Fixes incorrect placement of numbers in ol’s in IE6/7 */ 
+ol { margin-left:2em; } 
+/* == clearfix == */ 
+.clearfix:after { 
+    content: “.”; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden; 
+} 
+.clearfix {display: inline-block;} 
+* html .clearfix {height: 1%;} 
+
+/* CSS begin */
+body {
+    background: #fff;
+    font-size: 14px;
+}
+h1 {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: center;
+    color: #797979;
+    font-size: 24px;
+    font-weight: bold;
+}
+.wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #2c2f3f;
+    border-radius: 50%
+}
+.wrap .minute li,
+.wrap .hour li,
+.wrap .items .secondPointer,
+.wrap .items .minutePointer,
+.wrap .items .hourPointer,
+.wrap .items .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+    background-color: #fff;
+    /*transition: all 1s linear;*/
+} 
+.wrap .minute li {
+    width: 6px;
+    height: 2px;
+}
+.wrap .hour li {
+    width: 8px;
+    height: 3px;
+}
+.wrap .numbers li {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    color: #fff;
+    /*background-color: red;*/
+}
+.wrap .items .secondPointer {
+    width: 78px;
+    height: 1px;
+}
+.wrap .items .minutePointer {
+    width: 58px;
+    height: 2px;
+}
+.wrap .items .hourPointer {
+    width: 40px;
+    height: 3px;
+}
+.wrap .items .circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+
+}
