@@ -1,0 +1,31 @@
+/* --------------------
+	css reset
+-----------------------*/
+/* 酌情修改 */
+body{background:#fff;font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+body,th,td,input,select,textarea,button{font-size:14px;line-height:1.2 ;} /* 重置页面文字属性 */
+
+
+del,ins,a{text-decoration:none;}
+a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚线框 */
+
+.clearfix {zoom:1}
+.clearfix:after {content: '\20'; display: block; clear: both;}
+
+li{ list-style: none; }
+
+
+
+/* --------------------
+	css begin
+-----------------------*/
+.algorithm .input {
+	width: 40%;
+	margin-right: 5%; 
+}
+.algorithm .btn {
+	width: 5%;
+}
+.algorithm .output {
+}
