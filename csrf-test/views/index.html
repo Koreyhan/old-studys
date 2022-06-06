@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    
+    <title>CSRF</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="" />
+
+    <style>
+      .group {
+        margin: 10px;
+        padding: 10px;
+        border: solid 1px #ccc;
+      }
+      .red {
+        color: red;
+      }     
+    </style>
+  </head>
+  <body>
+    <div class="group red">
+      <p>NOTE: 页面地址: http://localhost:3000/index，调用接口地址: http://0.0.0.0:3000/api/test</p>
+    </div>
+
+    <div class="group red">
+      <p>sameSite 规则测试: 先访问调用接口地址，会保存三个 cookie(token、tokenStrict、tokenLax)，进行请求并观察 cookie 携带情况</p>
+    </div>
+
+    <div class="group">
+      <p>在同域下发送请求，成功</p>
+      <a href="javascript:;" onclick="ssRequest()">发送同域请求</a>
+    </div>
+
+    <div class="group">
+      <p>在不同域下发送跨域请求，接口不支持跨域时，AJAX 请求直接发送失败，控制台可见报错</p>
+      <a href="javscript:;" onclick="csRequest()">发送跨域请求</a>
+    </div>
+
+    <div class="group">
+      <p>使用 form 表单提交 GET 请求，请求可以提交成功，请求头中 Referer 字段为‘页面地址’</p>
+      <form action="http://0.0.0.0:3000/api/test" method="get">
+        First name:<br>
+        <input type="text" name="firstname" value="Mickey"><br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse"><br><br>
+        <input type="submit" value="提交 GET 请求">
+      </form>
+    </div>
+
+    <div class="group">
+      <p>使用 form 表单提交 POST 请求，请求可以提交成功，请求头中 Referer 字段为‘页面地址’，请求头中 Origin 字段为‘页面地址’域</p>
+      <form action="http://0.0.0.0:3000/api/test" method="post">
+        First name:<br>
+        <input type="text" name="firstname" value="Mickey"><br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse"><br><br>
+        <input type="submit" value="提交 POST 请求">
+      </form>
+    </div>
+    
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+    <script>
+      function ssRequest () {
+        console.log('准备发送同域请求')
+        axios.get('/api/test')
+          .then(function (res) {
+            console.log(res)
+          })
+      }
+
+      function csRequest () {
+        console.log('准备发送跨域请求')
+        axios.get('http://0.0.0.0:3000/api/test')
+          .then(function (res) {
+            console.log(res)
+          })
+      }
+    </script>
+  </body>
+</html>
